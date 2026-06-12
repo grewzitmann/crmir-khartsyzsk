@@ -163,7 +163,7 @@ button:active,
 }
 
 .screen--hero {
-  min-height: 92svh;
+  min-height: 100svh;
 
   padding: 90px 0 46px;
 }
