@@ -155,7 +155,7 @@ button:active,
 ========================= */
 
 .screen {
-  min-height: 100svh;
+  min-height: 82svh;
 
   display: flex;
   align-items: center;
