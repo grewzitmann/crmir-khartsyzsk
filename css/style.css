@@ -1,3 +1,1140 @@
-body{
-  margin:0;
+/* =========================
+   ШРИФТ DAYS
+========================= */
+
+@font-face {
+  font-family: "Days";
+  src: url("../fonts/days.woff2") format("woff2");
+  font-display: swap;
+}
+
+/* =========================
+   ПЕРЕМЕННЫЕ
+========================= */
+
+:root {
+  --bg: #0d061a;
+  --bg-blue: #202b3a;
+
+  --mov: #732DDD;
+  --mov-dark: #34105f;
+
+  --tiffany: #81D8D0;
+
+  --cream: #F0EEE9;
+  --black: #111111;
+}
+
+/* =========================
+   БАЗА
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  background: #111111;
+
+  color: var(--cream);
+  font-family: "Sora", system-ui, sans-serif;
+
+  overflow-x: hidden;
+}
+
+a,
+button,
+.portal-card,
+.museum-card,
+.ogbi-button,
+.social-icons a {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+a:focus,
+a:active,
+button:focus,
+button:active,
+.portal-card:focus,
+.portal-card:active,
+.museum-card:focus,
+.museum-card:active,
+.ogbi-button:focus,
+.ogbi-button:active {
+  outline: none;
+}
+
+/* =========================
+   ОСНОВНАЯ ПОВЕРХНОСТЬ САЙТА
+========================= */
+
+.site-surface {
+  position: relative;
+  z-index: 1;
+
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  border-radius: 0 0 76px 76px;
+
+  background:
+    radial-gradient(circle at 20% 45%, rgba(115, 45, 221, .28), transparent 28%),
+    radial-gradient(circle at 80% 5%, rgba(129, 216, 208, .08), transparent 30%),
+    linear-gradient(115deg, #11031f 0%, #090012 48%, #202b3a 100%);
+}
+
+/* =========================
+   ФИКСИРОВАННЫЙ ФОН
+========================= */
+
+.fixed-bg-word {
+  position: fixed;
+  left: 50%;
+  top: 135px;
+
+  transform: translateX(-50%);
+
+  z-index: 0;
+  pointer-events: none;
+
+  font-family: "Days", sans-serif;
+  font-size: clamp(96px, 20vw, 300px);
+  letter-spacing: .08em;
+  white-space: nowrap;
+
+  color: rgba(240, 238, 233, .012);
+}
+
+/* =========================
+   ЖИВОЙ СВЕТОВОЙ СГУСТОК
+========================= */
+
+.fixed-glow {
+  position: fixed;
+  inset: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  z-index: 0;
+  pointer-events: none;
+
+  opacity: .95;
+
+  filter:
+    blur(2px)
+    saturate(1.35)
+    brightness(1.05);
+
+  mix-blend-mode: screen;
+}
+
+/* =========================
+   ОБЩАЯ ШИРИНА САЙТА
+========================= */
+
+.page {
+  position: relative;
+  z-index: 2;
+
+  width: min(800px, calc(100% - 56px));
+  margin: 0 auto;
+}
+
+/* =========================
+   ЭКРАНЫ
+========================= */
+
+.screen {
+  min-height: 86svh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.screen--hero {
+  min-height: 92svh;
+
+  padding: 90px 0 46px;
+}
+
+.screen--buttons {
+  min-height: 78svh;
+
+  padding: 54px 0 58px;
+}
+
+.screen--ogbi {
+  min-height: 76svh;
+
+  padding: 42px 0 70px;
+}
+
+/* =========================
+   ПЕРВЫЙ ЭКРАН
+========================= */
+
+.hero {
+  flex-direction: column;
+}
+
+.hero-title {
+  display: block;
+
+  width: min(820px, 92%);
+
+  filter:
+    drop-shadow(0 0 20px rgba(255, 255, 255, .12));
+}
+
+/* =========================
+   СОЦИАЛЬНЫЕ СЕТИ
+========================= */
+
+.social-icons {
+  margin-top: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 42px;
+}
+
+.social-icons a {
+  width: 36px;
+  height: 36px;
+
+  display: grid;
+  place-items: center;
+
+  text-decoration: none;
+
+  transition:
+    transform .25s ease,
+    filter .25s ease,
+    opacity .25s ease;
+}
+
+.social-icons a:hover {
+  transform: translateY(-3px) scale(1.06);
+
+  filter:
+    drop-shadow(0 0 12px rgba(129, 216, 208, .44))
+    drop-shadow(0 0 18px rgba(115, 45, 221, .28));
+}
+
+.social-icons img {
+  display: block;
+
+  height: auto;
+
+  object-fit: contain;
+
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Telegram */
+.social-icons a:nth-child(1) img {
+  width: 29px;
+}
+
+/* VK */
+.social-icons a:nth-child(2) img {
+  width: 37px;
+}
+
+/* MAX */
+.social-icons a:nth-child(3) img {
+  width: 29px;
+}
+
+/* =========================
+   ПОДПИСЬ ПЕРВОГО ЭКРАНА
+========================= */
+
+.hero-subtitle {
+  margin: 56px 0 0;
+
+  text-align: center;
+
+  color: rgba(240, 238, 233, .9);
+
+  font-size: clamp(18px, 2vw, 26px);
+  line-height: 1.45;
+}
+
+/* =========================
+   БЛОК КНОПОК
+========================= */
+
+.buttons-area {
+  position: relative;
+
+  width: 100%;
+  max-width: 660px;
+
+  margin: 0 auto;
+}
+
+/* =========================
+   МУЗЕЙ ДОБРЫХ ДЕЛ
+========================= */
+
+.museum-card {
+  position: relative;
+
+  width: 100%;
+  min-height: 132px;
+
+  margin: 0 0 42px;
+  padding: 42px 28px 48px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 34px;
+
+  text-decoration: none;
+  color: var(--cream);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(40, 18, 78, .82) 0%,
+      rgba(22, 7, 45, .92) 100%
+    );
+
+  box-shadow:
+    0 22px 52px rgba(0, 0, 0, .40),
+    0 0 42px rgba(115, 45, 221, .16),
+    inset 0 16px 30px rgba(255, 255, 255, .035),
+    inset 0 -20px 36px rgba(0, 0, 0, .30);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.museum-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 28px 64px rgba(0, 0, 0, .46),
+    0 0 54px rgba(115, 45, 221, .22),
+    inset 0 16px 30px rgba(255, 255, 255, .045),
+    inset 0 -20px 36px rgba(0, 0, 0, .34);
+}
+
+.museum-logo {
+  position: absolute;
+
+  top: -40px;
+  left: 50%;
+
+  width: 64px;
+  height: auto;
+
+  transform: translateX(-50%);
+
+  filter:
+    drop-shadow(0 0 16px rgba(255, 255, 255, .18))
+    drop-shadow(0 0 18px rgba(115, 45, 221, .34));
+
+  user-select: none;
+  pointer-events: none;
+}
+
+.museum-card h2 {
+  margin: 0;
+
+  text-align: center;
+
+  font-family: "Days", sans-serif;
+  font-weight: 400;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.02;
+  letter-spacing: .01em;
+
+  color: #ffffff;
+}
+
+.museum-actions {
+  position: absolute;
+
+  left: 50%;
+  bottom: -25px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  width: min(500px, calc(100% - 88px));
+}
+
+.museum-actions span {
+  flex: 1;
+
+  min-height: 50px;
+
+  padding: 0 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+
+  background: var(--tiffany);
+  color: #202228;
+
+  font-family: "Sora", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1;
+
+  white-space: nowrap;
+
+  box-shadow:
+    0 16px 28px rgba(0, 0, 0, .22),
+    inset 0 1px 0 rgba(255, 255, 255, .18);
+}
+
+.museum-actions b {
+  width: 50px;
+  height: 50px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: var(--tiffany);
+  color: #202228;
+
+  font-family: "Sora", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1;
+
+  box-shadow:
+    0 16px 28px rgba(0, 0, 0, .22),
+    inset 0 1px 0 rgba(255, 255, 255, .18);
+}
+
+/* =========================
+   ПОРТАЛЫ
+========================= */
+
+.portal-area {
+  position: relative;
+
+  padding: 24px;
+
+  border-radius: 34px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(35, 11, 68, .58) 0%,
+      rgba(23, 4, 45, .82) 100%
+    );
+
+  box-shadow:
+    0 22px 58px rgba(0, 0, 0, .36),
+    0 0 42px rgba(115, 45, 221, .12),
+    inset 0 10px 26px rgba(255, 255, 255, .025),
+    inset 0 -16px 34px rgba(0, 0, 0, .30);
+}
+
+.portal-card {
+  min-height: 104px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 28px;
+
+  text-decoration: none;
+  text-align: center;
+
+  font-family: "Days", sans-serif;
+  font-size: clamp(25px, 3.6vw, 38px);
+  font-weight: 400;
+  line-height: 1.05;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    filter .25s ease;
+}
+
+.portal-card + .portal-card {
+  margin-top: 14px;
+}
+
+.portal-card:hover {
+  transform: translateY(-4px);
+}
+
+.portal-card--activist {
+  background: var(--mov);
+  color: #ffffff;
+
+  box-shadow:
+    0 16px 32px rgba(115, 45, 221, .34),
+    inset 0 14px 24px rgba(255, 255, 255, .08),
+    inset 0 -16px 30px rgba(0, 0, 0, .18);
+}
+
+.portal-card--organizer {
+  background: var(--tiffany);
+  color: #25272d;
+
+  box-shadow:
+    0 16px 32px rgba(129, 216, 208, .18),
+    inset 0 14px 24px rgba(255, 255, 255, .16),
+    inset 0 -16px 30px rgba(0, 0, 0, .08);
+}
+
+/* =========================
+   ОГБИ — PNG КНОПКА
+========================= */
+
+.ogbi-block {
+  position: relative;
+
+  width: 100%;
+  max-width: 760px;
+
+  margin: 0 auto;
+
+  transform: translateX(-15px);
+}
+
+.ogbi-button {
+  display: block;
+
+  width: 100%;
+
+  text-decoration: none;
+
+  transition:
+    transform .25s ease,
+    filter .25s ease;
+}
+
+.ogbi-button:hover {
+  transform: translateY(-4px);
+
+  filter:
+    drop-shadow(0 24px 46px rgba(0, 0, 0, .36))
+    drop-shadow(0 0 34px rgba(115, 45, 221, .22));
+}
+
+.ogbi-button:active {
+  transform: translateY(-1px) scale(.995);
+}
+
+.ogbi-image {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  user-select: none;
+  pointer-events: none;
+}
+
+/* =========================
+   ПОДВАЛ
+========================= */
+
+.footer {
+  position: relative;
+  z-index: 0;
+
+  padding: 18px 20px 20px;
+
+  background: #111111;
+
+  text-align: center;
+}
+
+.footer strong {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.footer p {
+  margin: 0 0 10px;
+
+  color: rgba(255, 255, 255, .78);
+
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.footer span {
+  color: rgba(255, 255, 255, .68);
+
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+/* =========================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================= */
+
+@media (max-width: 700px) {
+  .site-surface {
+    border-radius: 0 0 48px 48px;
+  }
+
+  .page {
+    width: 100%;
+    padding: 0 28px;
+  }
+
+  .fixed-bg-word {
+    display: none;
+  }
+
+  .fixed-glow {
+    opacity: .9;
+  }
+
+  .screen {
+    min-height: auto;
+  }
+
+  .screen--hero {
+    min-height: 74svh;
+
+    padding: 72px 0 24px;
+  }
+
+  .screen--buttons {
+    min-height: auto;
+
+    padding: 8px 0 22px;
+    align-items: flex-start;
+  }
+
+  .screen--ogbi {
+    min-height: auto;
+
+    padding: 0 0 54px;
+    align-items: flex-start;
+  }
+
+  .hero-title {
+    width: 88%;
+  }
+
+  .social-icons {
+    margin-top: 46px;
+
+    gap: 28px;
+  }
+
+  .social-icons a {
+    width: 30px;
+    height: 30px;
+  }
+
+  .social-icons a:nth-child(1) img {
+    width: 24px;
+  }
+
+  .social-icons a:nth-child(2) img {
+    width: 31px;
+  }
+
+  .social-icons a:nth-child(3) img {
+    width: 24px;
+  }
+
+  .hero-subtitle {
+    margin-top: 30px;
+
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .buttons-area {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .museum-card {
+    min-height: 96px;
+
+    margin-bottom: 34px;
+    padding: 28px 16px 34px;
+
+    border-radius: 26px;
+  }
+
+  .museum-logo {
+    top: -27px;
+
+    width: 46px;
+  }
+
+  .museum-card h2 {
+    font-size: 22px;
+    white-space: nowrap;
+  }
+
+  .museum-actions {
+    bottom: -17px;
+
+    gap: 7px;
+
+    width: calc(100% - 58px);
+  }
+
+  .museum-actions span {
+    min-height: 34px;
+
+    padding: 0 12px;
+
+    font-size: 11px;
+    line-height: 1;
+
+    white-space: nowrap;
+  }
+
+  .museum-actions b {
+    width: 34px;
+    height: 34px;
+
+    font-size: 20px;
+  }
+
+  .portal-area {
+    padding: 14px;
+
+    border-radius: 24px;
+  }
+
+  .portal-card {
+    min-height: 68px;
+
+    border-radius: 20px;
+
+    font-size: 18px;
+    line-height: 1.05;
+  }
+
+  .portal-card + .portal-card {
+    margin-top: 10px;
+  }
+
+  .ogbi-block {
+    width: 100%;
+    max-width: 100%;
+
+    margin-top: -8px;
+
+    transform: translateX(-8px);
+  }
+
+  .ogbi-button:hover {
+    transform: none;
+
+    filter: none;
+  }
+
+  .footer {
+    padding: 14px 20px 16px;
+  }
+
+  .footer strong {
+    margin-bottom: 5px;
+
+    font-size: 10px;
+  }
+
+  .footer p {
+    margin-bottom: 8px;
+
+    font-size: 10px;
+  }
+
+  .footer span {
+    font-size: 9px;
+  }
+}
+
+/* =========================
+   ПЕРЕХОД В ПОРТАЛ
+========================= */
+
+body.portal-transitioning {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+/* Элементы, которые исчезают */
+.portal-fade-item {
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Быстрое исчезновение интерфейса */
+body.portal-dissolve .portal-fade-item {
+  animation:
+    portal-clean-dissolve .62s cubic-bezier(.25, .72, .22, 1) forwards;
+
+  animation-delay: var(--portal-delay, 0s);
+}
+
+/* Нажатая кнопка исчезает первой */
+body.portal-dissolve .portal-source {
+  animation:
+    portal-source-hide .46s cubic-bezier(.2, .76, .18, 1) forwards;
+}
+
+/* На этапе исчезновения фон остаётся стабильным */
+body.portal-dissolve .fixed-glow {
+  transform: none;
+
+  filter:
+    blur(2px)
+    saturate(1.35)
+    brightness(1.05);
+}
+
+/* Главный слой сглаживания и погружения */
+.portal-transition-layer {
+  position: fixed;
+  inset: 0;
+
+  z-index: 999;
+  pointer-events: none;
+
+  opacity: 0;
+
+  background: rgba(9, 0, 24, 0);
+
+  will-change: opacity, transform, backdrop-filter;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+
+  -webkit-backdrop-filter: blur(0);
+  backdrop-filter: blur(0);
+}
+
+/* Мягкое световое ядро */
+.portal-transition-layer::before {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  top: 42%;
+
+  width: 140vmax;
+  height: 140vmax;
+
+  transform:
+    translate3d(-50%, -50%, 0)
+    scale(.22);
+
+  opacity: 0;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, .70) 0%,
+      rgba(255, 255, 255, .42) 5%,
+      rgba(129, 216, 208, .34) 13%,
+      rgba(115, 45, 221, .20) 26%,
+      rgba(44, 10, 94, .09) 43%,
+      rgba(20, 4, 45, .03) 58%,
+      transparent 76%
+    );
+
+  filter:
+    blur(24px)
+    saturate(1.45);
+
+  mix-blend-mode: screen;
+
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+
+/* Мягкая тёмная вуаль, чтобы скрыть микродёрганность */
+.portal-transition-layer::after {
+  content: "";
+
+  position: absolute;
+  inset: -10%;
+
+  opacity: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(255, 255, 255, .04) 0%,
+      transparent 22%,
+      rgba(12, 0, 32, .06) 48%,
+      rgba(5, 0, 16, .44) 100%
+    );
+
+  filter: blur(12px);
+
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+
+/* Фаза погружения */
+body.portal-fall .portal-transition-layer {
+  opacity: 1;
+
+  background: rgba(9, 0, 24, .06);
+
+  -webkit-backdrop-filter: blur(1.2px);
+  backdrop-filter: blur(1.2px);
+
+  transition:
+    background 2.8s ease,
+    backdrop-filter 2.8s ease,
+    -webkit-backdrop-filter 2.8s ease;
+}
+
+body.portal-fall .portal-transition-layer::before {
+  animation:
+    portal-light-fall 2.8s cubic-bezier(.14, .82, .16, 1) forwards;
+}
+
+body.portal-fall .portal-transition-layer::after {
+  animation:
+    portal-edge-fall 2.8s cubic-bezier(.14, .82, .16, 1) forwards;
+}
+
+/* Само свечение приближается медленнее и плавнее */
+body.portal-fall .fixed-glow {
+  transform:
+    scale(2.05)
+    rotate(2deg);
+
+  opacity: 1;
+
+  filter:
+    blur(1px)
+    saturate(1.95)
+    brightness(1.72);
+
+  transition:
+    transform 2.8s cubic-bezier(.14, .82, .16, 1),
+    filter 2.8s cubic-bezier(.14, .82, .16, 1),
+    opacity 2.8s ease;
+}
+
+/* Фоновая надпись уходит мягко */
+body.portal-fall .fixed-bg-word {
+  animation:
+    portal-bg-word-fall 2.8s cubic-bezier(.14, .82, .16, 1) forwards;
+}
+
+/* Быстрое исчезновение элементов */
+@keyframes portal-clean-dissolve {
+  0% {
+    opacity: 1;
+
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate3d(0, -5px, 0)
+      scale(.988);
+  }
+}
+
+/* Нажатая кнопка */
+@keyframes portal-source-hide {
+  0% {
+    opacity: 1;
+
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate3d(0, -4px, 0)
+      scale(.97);
+  }
+}
+
+/* Плавное световое погружение */
+@keyframes portal-light-fall {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate3d(-50%, -50%, 0)
+      scale(.22);
+  }
+
+  20% {
+    opacity: .78;
+
+    transform:
+      translate3d(-50%, -50%, 0)
+      scale(.62);
+  }
+
+  52% {
+    opacity: .86;
+
+    transform:
+      translate3d(-50%, -50%, 0)
+      scale(1.42);
+  }
+
+  82% {
+    opacity: .42;
+
+    transform:
+      translate3d(-50%, -50%, 0)
+      scale(2.35);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate3d(-50%, -50%, 0)
+      scale(3.15);
+  }
+}
+
+/* Вуаль по краям */
+@keyframes portal-edge-fall {
+  0% {
+    opacity: 0;
+
+    transform:
+      scale(1);
+  }
+
+  38% {
+    opacity: .18;
+  }
+
+  74% {
+    opacity: .34;
+
+    transform:
+      scale(1.08);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      scale(1.14);
+  }
+}
+
+@keyframes portal-bg-word-fall {
+  0% {
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      scale(1);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translateX(-50%)
+      scale(1.35);
+  }
+}
+
+/* Телефон — максимально лёгкий и плавный вариант */
+@media (max-width: 700px) {
+  body.portal-dissolve .portal-fade-item {
+    animation-duration: .52s;
+  }
+
+  body.portal-dissolve .portal-source {
+    animation-duration: .40s;
+  }
+
+  body.portal-fall .portal-transition-layer {
+    -webkit-backdrop-filter: blur(.8px);
+    backdrop-filter: blur(.8px);
+  }
+
+  body.portal-fall .fixed-glow {
+    transform:
+      scale(1.72)
+      rotate(1.5deg);
+
+    filter:
+      blur(1px)
+      saturate(1.75)
+      brightness(1.55);
+  }
+
+  .portal-transition-layer::before {
+    width: 120vmax;
+    height: 120vmax;
+
+    filter:
+      blur(22px)
+      saturate(1.35);
+  }
+
+  .portal-transition-layer::after {
+    filter: blur(10px);
+  }
+
+  body.portal-fall .portal-transition-layer::before,
+  body.portal-fall .portal-transition-layer::after,
+  body.portal-fall .fixed-bg-word {
+    animation-duration: 2.45s;
+  }
 }

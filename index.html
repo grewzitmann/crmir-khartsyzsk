@@ -1,11 +1,174 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-<title>ЦРМИР</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Харцызский молодёжный центр</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Шрифты интерфейса -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<h1>Сайт работает!</h1>
+  <!-- Основная фиолетовая поверхность сайта -->
+  <div class="site-surface">
 
+    <!-- Живой canvas-сгусток на фоне -->
+    <canvas
+      class="fixed-glow"
+      id="liquidGlowCanvas"
+      aria-hidden="true">
+    </canvas>
+
+    <!-- Фиксированная надпись на фоне -->
+    <div class="fixed-bg-word">ЦРМИР</div>
+
+    <main class="page">
+
+      <!-- Первый экран -->
+      <section class="screen screen--hero hero">
+
+        <img
+          class="hero-title"
+          src="images/title.svg"
+          alt="Харцызский молодёжный центр">
+
+        <div class="social-icons">
+
+          <a
+            href="https://t.me/crmir_khartsyzsk"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Telegram">
+
+            <img src="images/tg.png" alt="Telegram">
+
+          </a>
+
+          <a
+            href="https://vk.com/cr_mir_khartsyzsk"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="ВКонтакте">
+
+            <img src="images/vk.png" alt="ВКонтакте">
+
+          </a>
+
+          <a
+            href="https://max.ru/id9303015274_gos"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="MAX">
+
+            <img src="images/max.png" alt="MAX">
+
+          </a>
+
+        </div>
+
+        <p class="hero-subtitle">
+          Пространство идей, проектов и инициатив<br>
+          молодёжи Харцызска
+        </p>
+
+      </section>
+
+      <!-- Второй экран -->
+      <section class="screen screen--buttons">
+
+        <section class="buttons-area">
+
+          <!-- Музей добрых дел -->
+          <a class="museum-card" href="pages/museum.html">
+
+            <img
+              class="museum-logo"
+              src="images/museum-logo.svg"
+              alt="Музей добрых дел">
+
+            <h2>
+              Музей добрых дел
+            </h2>
+
+            <div class="museum-actions">
+
+              <span>
+                Новостная лента волонтёрства
+              </span>
+
+              <b>
+                →
+              </b>
+
+            </div>
+
+          </a>
+
+          <!-- Порталы -->
+          <div class="portal-area">
+
+            <a class="portal-card portal-card--activist" href="pages/activist.html">
+              Портал активиста
+            </a>
+
+            <a class="portal-card portal-card--organizer" href="pages/organizer.html">
+              Портал организатора
+            </a>
+
+          </div>
+
+        </section>
+
+      </section>
+
+      <!-- Третий экран -->
+      <section class="screen screen--ogbi">
+
+        <section class="ogbi-block">
+
+          <a
+            class="ogbi-button"
+            href="pages/employee.html"
+            aria-label="Открыть специалист AI — чат">
+
+            <img
+              class="ogbi-image"
+              src="images/ogbi.png"
+              alt="Специалист AI — чат ОГБИ">
+
+          </a>
+
+        </section>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Подвал -->
+  <footer class="footer">
+
+    <strong>ЦРМИР | Харцызск</strong>
+
+    <p>
+      Харцызский молодёжный центр
+    </p>
+
+    <span>
+      2026 Все права защищены
+    </span>
+
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
